@@ -27,3 +27,5 @@ Original favorites and district browsing remain available. Team views now show s
 Run `node test-bracket.cjs` to check advancement, third-place participants, dependent-result clearing, invalid-result rejection, and round-trip result preservation.
 
 Independent fan site; not affiliated with MSHSAA or participating schools. Confirm travel details with official sources.
+
+Favorite teams highlight their confirmed state match cards in faint yellow and sort first within each round. The highlight follows teams as winners advance. District favorite controls are removed; historical district browsing is still available.
