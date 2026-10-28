@@ -1,34 +1,29 @@
-# 2026 Girls Volleyball District Tournament
+# 2026 Missouri Class 3 Girls Volleyball
 
-Unofficial, independent fan-made tournament tracker for 2026 Missouri Class 3 girls volleyball.
+Updated with the 16 state qualifiers and bracket supplied October 28, 2026. Sectionals October 29; quarterfinals October 31; semifinals November 6; championship and third place November 7. Quarterfinal times and venues are unconfirmed. No state winners have been assumed.
 
-## Publish on GitHub Pages
+## Upload to your existing GitHub Pages repository
 
-1. Create a new GitHub repository (for example `mo-volleyball-2026`).
-2. Upload **the contents of this folder** to the repository root. `index.html` must be in the root, not inside a nested ZIP folder.
-3. In GitHub, go to **Settings → Pages** and select **Deploy from a branch**, branch `main`, folder `/(root)`, then Save.
-4. Wait for GitHub to show your published Pages URL. Open it on your phone.
+Upload this folder's contents to the repository root, replacing matching files. Keep `index.html`, `state-ui.js`, `state-engine.js`, and the `data` folder together. No build or database is required. The site also opens directly from `index.html` on your computer.
 
-## What works today
+## Enter and publish winners
 
-- Public mobile-friendly team/district browser with favorites (stored in the visitor's browser).
-- Seeded teams, district games, possible opponents, and available schedule information from the collected reference snapshot.
-- Links to MSHSAA for official confirmation.
+1. Open the site and click **Enter match winners**.
+2. Select each winner from its match dropdown. Later games become selectable when both participants are known. Semifinal losers populate third place automatically.
+3. Changes save in this browser. Correcting or clearing an earlier winner clears every dependent later result.
+4. Click **Download results file** to save `state-data.js`.
+5. Replace **data/state-data.js** in your GitHub repository with that file to publish your results for all visitors. Keep the downloaded file as a backup.
 
-## Important limitations
+**Import results file** restores a downloaded file in this browser. **Use published results** discards this browser's selections and reloads the results shipped with the site. Visitors with saved manual selections continue seeing their own selections until they use that button. Editing is a personal browser feature, not authenticated administration of the public site.
 
-- **This is a static site.** The CSV files under `data/` are reference copies. The current `index.html` contains its own embedded snapshot and does **not** automatically read changes from those CSVs.
-- There is **no shared hosted database**, no automated results collection, and no synchronized updates yet.
-- `local-admin/admin.html` is a **local prototype only**. It saves to browser storage and exports backups; it is **not password protected** and does **not** publish results to the public site. **Do not publish it as a secure admin page.**
-- Files in a public GitHub repository (including `local-admin/`) are public. If you want to avoid uploading the prototype, upload only `index.html`, `.nojekyll`, `data/`, and `README.md`.
-- Some venue, date, and matchup details are unverified; confirm travel details with official MSHSAA pages.
+## Data
 
-## Future live-data architecture
+`data/state-data.js` is the active state bracket source. It works online and when the site is opened locally. It includes participants, feeder games, dates, times, and published results. The older CSVs and embedded district data remain historical reference only; district match scores and individual district-round winners have not been reconstructed from the state screenshot. Earlier `local-admin/` files remain a separate legacy prototype and do not publish this state bracket.
 
-GitHub Pages (public site) → Supabase read-only API (teams, games, winners) ← authenticated admin + approved import workflow.
+Original favorites and district browsing remain available. Team views now show state qualification and the state path. State data does not refresh automatically from MSHSAA.
 
-Keep Supabase service-role keys, upload processing credentials, and all private tokens **off GitHub Pages**. Configure row-level security and server-side permissions before enabling editing.
+## Verification
 
-## Attribution
+Run `node test-bracket.cjs` to check advancement, third-place participants, dependent-result clearing, invalid-result rejection, and round-trip result preservation.
 
-Independent fan site; not affiliated with, endorsed by, or maintained by MSHSAA, MaxPreps, or participating schools.
+Independent fan site; not affiliated with MSHSAA or participating schools. Confirm travel details with official sources.
