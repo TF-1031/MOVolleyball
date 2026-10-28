@@ -29,3 +29,7 @@ Run `node test-bracket.cjs` to check advancement, third-place participants, depe
 Independent fan site; not affiliated with MSHSAA or participating schools. Confirm travel details with official sources.
 
 Favorite teams highlight their confirmed state match cards in faint yellow and sort first within each round. The highlight follows teams as winners advance. District favorite controls are removed; historical district browsing is still available.
+
+The district bracket navigation button has been replaced by the official MSHSAA state tournament reference. Favorite changes explicitly refresh the state match cards; team-path game containers also receive the yellow background. Versioned script URLs refresh cached code after upload.
+
+Scoreboard-inspired additions: date filters, compact team rows, a WIN marker, and star controls beside each team to favorite directly from a match card.
